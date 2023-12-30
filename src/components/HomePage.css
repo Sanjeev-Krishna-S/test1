@@ -1,0 +1,31 @@
+.flexbox-container{
+    display: flex;
+    text-align: center;
+    color: #2f234f;
+}
+
+.flexbox-container > * {
+    padding: 10px;
+    margin: 10px;
+    flex: 1 100%;
+    border-radius: 10px;
+
+}
+
+.article{
+    height:300px;
+    font-size: medium;
+    line-height: 38px;
+    word-spacing: 5px;
+    text-align:justify;
+    padding-left: 110px;
+}
+
+.article h2{
+    text-align: center;
+}
+
+.aside1{
+    background-image: url(../technology\ image.jpg);
+    
+}
