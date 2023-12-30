@@ -146,3 +146,61 @@
     color: #2f234f;
   }
   
+  /* New section styles: What we offer */
+.offer-section {
+    text-align: center;
+    background-color: #695E93;
+    color: #ffffff;
+    padding: 50px;
+    animation: fadeInUp 0.7s ease;
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition for the hover effect */
+  }
+  
+  .offer-section p{
+    font-size: large;
+    line-height: 30px;
+    word-spacing: 5px;
+    text-align:justify;
+  }
+  .offer-section:hover {
+    animation: hoverAnimation 3s ease infinite; /* Apply hover animation on hover */
+  }
+  
+  .offer-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out; /* Add color transition on hover */
+  }
+  
+  .offer-section:hover .offer-heading {
+    color: #ffcc00; /* Change the color on hover */
+  }
+  
+  .offer-content {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  /* Animation effects */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes hoverAnimation {
+    20% {
+      transform: scale(1.0); /* Slightly scale up on hover */
+    }
+  }
+
+  #join {
+    font-size: larger;
+    font-weight: 700;
+    text-align: center;
+  }

@@ -32,6 +32,17 @@ const HomePage = () => {
           
         </div>
       </div>
+
+      {/* New section: What we offer */}
+      <div className="offer-section">
+        <h2 className="offer-heading">What we offer!</h2>
+
+        <div className="offer-content">
+          <p>ICTAK has been pioneering its training model over the years both for Online and Offline training. With over 25K students & 10K teachers and a similar number of executives being trained by us, and has produced over 4.5 positive feedback ratings for the training that were conducted by ICT Academy of Kerala amongst its learners. We provide scholarships coupled with 100% placements, and a wide variety of trending courses.</p>
+          <p id='join'>Join us and build your career.</p>
+        </div>
+      </div>
+  
     <div className='container2'>
   
     <section className="academy-section">
