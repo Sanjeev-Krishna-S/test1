@@ -18,7 +18,7 @@ body {
 }
 
 .navbar {
-  height: 60px;
+  height: 65px;
   background-color: #D4F1F4;
   position: relative;
 }
@@ -62,4 +62,8 @@ body {
 .logo h3{
 font-size: xx-large;
 color: #2f234f;
+}
+
+.nav-elements ul a:hover{
+  color:#FA8072;
 }

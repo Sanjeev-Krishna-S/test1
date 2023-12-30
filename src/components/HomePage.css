@@ -2,6 +2,9 @@
     display: flex;
     text-align: center;
     color: #2f234f;
+    height: 300px;
+    background: #F9F9FB;
+    margin-bottom: 20px;
 }
 
 .flexbox-container > * {
@@ -13,7 +16,7 @@
 }
 
 .article{
-    height:300px;
+   
     font-size: medium;
     line-height: 38px;
     word-spacing: 5px;
@@ -25,7 +28,55 @@
     text-align: center;
 }
 
-.aside1{
-    background-image: url(../technology\ image.jpg);
-    
+.flexbox-container img{
+    width: 75%;
+    height: 89.9%;
+    margin-top: 27px;
+    margin-right: 50px;
+    border-radius: 120px 20px 120px 20px;
 }
+
+.container2 {
+    display: flex;
+    text-align: center;
+    color: #2f234f;
+    max-width: 85.7%; /* Set a maximum width to limit its expansion */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 300px;
+}
+
+.container2 > * {
+    padding: 10px;
+    margin: 10px;
+    flex: 1 100%;
+    border-radius: 20px;
+}
+
+
+/* Apply general styling to the section */
+.academy-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  /* Style for each logo container */
+  .logo-container {
+    text-align: center;
+  }
+  
+  /* Style for the logo image */
+  .logo-image {
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the text below each logo */
+  .logo-text {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
