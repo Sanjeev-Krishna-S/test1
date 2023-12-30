@@ -17,12 +17,27 @@ const HomePage = () => {
 
         
     </div>
+
+
+      {/* New section: Current Offerings */}
+      <div className="offerings-section">
+        <img src={require('../upskill.png')} alt="Offerings Image" className="offerings-image" />
+
+        <div className="offerings-content">
+          <h2>Welcome to ICTAK</h2>
+          <p>Are you a student from non-IT background?</p>
+          <p>Are you looking to develop your programming skills?</p>
+          <p>Are you searching for top courses as per market demand?</p>
+          <p>Are you unsure about your future?</p>
+          
+        </div>
+      </div>
     <div className='container2'>
   
     <section className="academy-section">
       {/* Logo 1: Upskilling the Youth */}
       <div className="logo-container">
-        <img src={require('../upskill.png')} alt="Upskilling Logo" className="logo-image" />
+        <img src={require('../transparent-road-arrows-upside-down-cup-gold-arrows-point-up-to-gold-cup-upside-down654c8514c1c4a8.3968198916995136207937.png')} alt="Upskilling Logo" className="logo-image" />
         <div className="logo-text">Upskilling the Youth</div>
       </div>
 
@@ -36,6 +51,12 @@ const HomePage = () => {
       <div className="logo-container">
         <img src={require('../achieve icon.png')} alt="Empowering Logo" className="logo-image" />
         <div className="logo-text">Empowering the Nation</div>
+      </div>
+
+      {/* Logo 4: Certification */}
+      <div className="logo-container">
+        <img src={require('../certification.png')} alt="Certification Logo" className="logo-image" />
+        <div className="logo-text">Certification</div>
       </div>
     </section>
     </div>
