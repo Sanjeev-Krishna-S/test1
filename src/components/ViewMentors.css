@@ -1,0 +1,11 @@
+.mentor-container {
+    display: flex;
+    justify-content: start;
+}
+
+.mentorlist{
+    margin: 10%;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    border: none;
+}

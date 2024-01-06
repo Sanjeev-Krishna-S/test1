@@ -5,10 +5,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -57,6 +53,9 @@ const AdminNavbar = () => {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               <Button component={Link} to="/admin/addmentor" sx={{ color: '#fff' }}>
                 Add Mentor
+              </Button>
+              <Button component={Link} to="/admin/viewmentor" sx={{ color: '#fff' }}>
+                View Mentors
               </Button>
               <Button component={Link} to="/login" sx={{ color: '#fff' }}>
                 Logout
