@@ -1,5 +1,5 @@
 import React from 'react';
-import '../components/HomePage.css';
+import './HomePage.css';
 const HomePage = () => {
   return (
     <>
@@ -11,7 +11,7 @@ const HomePage = () => {
       </article> 
 
         <aside className='aside aside1'>
-          <img src={require('../technology.jpg')} alt="Error Loading Image" />
+          <img src={require('../images/technology.jpg')} alt="Error Loading Image" />
         
         </aside>
 
@@ -21,7 +21,7 @@ const HomePage = () => {
 
       {/* New section: Current Offerings */}
       <div className="offerings-section">
-        <img src={require('../upskill.png')} alt="Offerings Image" className="offerings-image" />
+        <img src={require('../images/upskill.png')} alt="Offerings Image" className="offerings-image" />
 
         <div className="offerings-content">
           <h2>Welcome to ICTAK</h2>
@@ -48,25 +48,25 @@ const HomePage = () => {
     <section className="academy-section">
       {/* Logo 1: Upskilling the Youth */}
       <div className="logo-container">
-        <img src={require('../transparent-road-arrows-upside-down-cup-gold-arrows-point-up-to-gold-cup-upside-down654c8514c1c4a8.3968198916995136207937.png')} alt="Upskilling Logo" className="logo-image" />
+        <img src={require('../images/transparent-road-arrows-upside-down-cup-gold-arrows-point-up-to-gold-cup-upside-down654c8514c1c4a8.3968198916995136207937.png')} alt="Upskilling Logo" className="logo-image" />
         <div className="logo-text">Upskilling the Youth</div>
       </div>
 
       {/* Logo 2: Vivid Courses */}
       <div className="logo-container">
-        <img src={require('../web logo.png')} alt="Vivid Courses Logo" className="logo-image" />
+        <img src={require('../images/web logo.png')} alt="Vivid Courses Logo" className="logo-image" />
         <div className="logo-text">Vivid Courses</div>
       </div>
 
       {/* Logo 3: Empowering the Nation */}
       <div className="logo-container">
-        <img src={require('../achieve icon.png')} alt="Empowering Logo" className="logo-image" />
+        <img src={require('../images/achieve icon.png')} alt="Empowering Logo" className="logo-image" />
         <div className="logo-text">Empowering the Nation</div>
       </div>
 
       {/* Logo 4: Certification */}
       <div className="logo-container">
-        <img src={require('../certification.png')} alt="Certification Logo" className="logo-image" />
+        <img src={require('../images/certification.png')} alt="Certification Logo" className="logo-image" />
         <div className="logo-text">Certification</div>
       </div>
     </section>
