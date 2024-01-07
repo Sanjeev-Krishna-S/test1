@@ -1,0 +1,47 @@
+/* MentorDashboard.css */
+
+.MentorDashboard {
+  max-width: 800px;
+  margin: 30px auto; /* Adjusted margin for centering and moved slightly towards the top */
+  padding: 20px;
+  font-family: 'Poppins', sans-serif; /* Set Poppins font */
+}
+
+.MentorDashboard h2 {
+  color: #2f234f;
+  margin-bottom: 15px; /* Increased margin for spacing */
+  margin-top: 5px; /* Adjusted margin for moving towards the top */
+}
+
+/* Styles for Accordion */
+.MentorDashboard .MuiAccordion-root {
+  margin-bottom: 10px; /* Increased margin for spacing */
+}
+
+.MentorDashboard .MuiAccordionSummary-root {
+  background-color: #FDF4E3;
+}
+
+.MentorDashboard .project-name {
+  font-family: 'Poppins', sans-serif; /* Set Poppins font for Project names */
+  font-weight: bold; /* Make Project names slightly bold */
+  font-size: 17px;
+}
+
+.MentorDashboard .MuiAccordionDetails-root {
+  padding: 8px;
+  background-color: #f9f9f9;
+}
+
+.MentorDashboard ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.MentorDashboard li {
+  cursor: pointer;
+  margin-bottom: 15px; /* Increased margin for spacing */
+  border-bottom: 1px solid #ccc; /* Border after each submission */
+  padding-bottom: 8px; /* Adjusted padding for spacing */
+}
