@@ -1,19 +1,22 @@
-// Main.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import AdminNavbar from './AdminNavbar';
 import MentorNavbar from './MentorNavbar';
+import { useNavigate } from 'react-router-dom';
 
 const Main = (props) => {
-  const { pathname } = window.location;
+  const navigate = useNavigate();
+  const currentPath = window.location.pathname;
+
+  useEffect(() => {
+    console.log('Current Path (Main):', currentPath);
+  }, [currentPath]);
 
   let selectedNavbar;
 
-  // Conditionally select the appropriate navbar based on the route
-  if (pathname.startsWith('/admin')) {
+  if (currentPath.startsWith('/admin')) {
     selectedNavbar = <AdminNavbar />;
-  } else if (pathname.startsWith('/mentor')) {
-    // Assuming '/mentor' is the route for the MentorDashboard
+  } else if (currentPath.startsWith('/mentor')) {
     selectedNavbar = <MentorNavbar />;
   } else {
     selectedNavbar = <Navbar />;
