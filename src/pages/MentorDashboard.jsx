@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+// MentorDashboard.jsx
+import React from 'react';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Link, useNavigate } from 'react-router-dom';
 import './MentorDashboard.css';
 
 const MentorDashboard = () => {
@@ -10,59 +12,31 @@ const MentorDashboard = () => {
     { id: 3, name: 'Project 3' },
     { id: 4, name: 'Project 4' },
     { id: 5, name: 'Project 5' },
-
     // Add more projects as needed
   ];
 
-  const dummySubmissions = {
-    1: [
-      { id: 101, studentName: 'John Doe', topic: 'Topic 1', batch: 'Batch A' },
-    ],
-    2: [
-      { id: 102, studentName: 'Alice Smith', topic: 'Topic 2', batch: 'Batch B' },
-      // Add more submissions for Project 2
-    ],
-    3: [
-        { id: 103, studentName: 'Jasmine', topic: 'Topic 2', batch: 'Batch C' },
-    ],
-    4: [
-        { id: 104, studentName: 'Rose', topic: 'Topic 3', batch: 'Batch C' },
-    ],
-    5: [
-        { id: 105, studentName: 'Jonathan', topic: 'Topic 3', batch: 'Batch C' },
-    ]
-
-    // Add more submissions for other projects
-  };
-
-  const [selectedProject, setSelectedProject] = useState(null);
+  const navigate = useNavigate();
 
   const handleProjectClick = (projectId) => {
-    setSelectedProject((prevSelected) => (prevSelected === projectId ? null : projectId));
+    navigate(`/mentor/submission/${projectId}`);
   };
 
   return (
     <div className="MentorDashboard">
       <div>
-        <h2>PROJECTS</h2>
+        <h2 className="projects-heading">PROJECTS</h2>
         {dummyProjects.map((project) => (
           <Accordion
             key={project.id}
-            expanded={selectedProject === project.id}
-            onChange={() => handleProjectClick(project.id)}
+            onClick={() => handleProjectClick(project.id)}
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography className="project-name">{project.name}</Typography>
+              <Typography className="project-name">
+                {project.name}
+              </Typography>
             </AccordionSummary>
-
             <AccordionDetails>
-              <ul>
-                {dummySubmissions[project.id]?.map((submission) => (
-                  <li key={submission.id}>
-                    {submission.studentName} - {submission.topic} - {submission.batch}
-                  </li>
-                ))}
-              </ul>
+              {/* Include content here if needed */}
             </AccordionDetails>
           </Accordion>
         ))}

@@ -8,6 +8,9 @@ import ViewMentors from './components/ViewMentors';
 import Main from './components/Main';
 import About from './components/About';
 import MentorDashboard from './pages/MentorDashboard';
+import MentorSubmission from './pages/MentorSubmission';
+import MentorGrading from './pages/MentorGrading';
+
 
 function App() {
   return (
@@ -18,6 +21,8 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/admin/*' element={<Main child={<AdminDashboard />} />} />
         <Route path='/mentor/*' element={<Main child={<MentorDashboard />} />} />
+        <Route path='/mentor/submission/:projectId' element={<Main child={<MentorSubmission />} />} />
+        <Route path='/mentor/submission/:projectId/grade/*' element={<Main child={<MentorGrading />} />} />
         <Route path='/admin/addmentor' element={<AddMentor />} />
         <Route path='/admin/viewmentor' element={<ViewMentors />} />
       </Routes>
