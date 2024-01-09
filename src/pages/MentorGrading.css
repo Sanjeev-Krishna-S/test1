@@ -1,0 +1,56 @@
+/* MentorGrading.css */
+
+.mentor-grading-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .mentor-grading-h2 {
+    color: #2f234f;
+  }
+  
+  .mentor-grading-h3 {
+    font-size: 1.5em;
+    color: #2f234f;
+  }
+  
+  .mentor-grading-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .mentor-grading-table th,
+  .mentor-grading-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .mentor-grading-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .mentor-grading-textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .mentor-grading-button {
+    background-color: #2f234f;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    float: right; /* Align the button to the right */
+  }
+  
+  .mentor-grading-button:hover {
+    background-color: #574c4c;
+  }
+  
