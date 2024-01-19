@@ -19,9 +19,9 @@ const MentorGrading = () => {
   ];
 
   // Filter submission details based on the selected student's topic
-  const filteredSubmissionDetails = submissionDetails.filter(
-    (detail) => detail.topic === selectedStudent.topic
-  );
+  const filteredSubmissionDetails = selectedStudent.status === 'Not Submitted'
+    ? []
+    : submissionDetails.filter((detail) => detail.topic === selectedStudent.topic);
 
   // State to store grading data
   const [grading, setGrading] = useState({ grade: '', comment: '' });
@@ -51,12 +51,15 @@ const MentorGrading = () => {
   return (
     <div className="mentor-grading-container">
       <h2 className="mentor-grading-h2">Submission by {selectedStudentName}</h2>
-      {filteredSubmissionDetails.map((detail) => (
-        <div key={detail.topic}>
-          <h3>{detail.topic}</h3>
-          <p>{detail.content}</p>
-        </div>
-      ))}
+      {filteredSubmissionDetails.length > 0
+        ? filteredSubmissionDetails.map((detail) => (
+            <div key={detail.topic}>
+              <h3>{detail.topic}</h3>
+              <p>{detail.content}</p>
+            </div>
+          ))
+        : <p>No submissions attached</p>
+      }
       {/* Display the selected student's name */}
       <h3 className="mentor-grading-h3">Grading for {selectedStudentName}</h3>
       <table className="mentor-grading-table">

@@ -1,0 +1,77 @@
+/* AdminDashboard.css */
+
+.AdminDashboard {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .AdminDashboard h2 {
+    color: #2f234f;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align items horizontally with space in between */
+  }
+  
+  .AdminDashboard .projects-heading {
+    flex: 1;
+  }
+  
+  .AdminDashboard .add-icon {
+    margin-left: 10px; /* Adjusted margin for spacing */
+    background-color: #2196F3; /* Your desired background color */
+    color: #fff; /* Text color */
+    padding: 8px 12px; /* Adjusted padding for better appearance */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+  }
+  
+  .AdminDashboard .add-icon:hover {
+    background-color: #1565c0; /* Darker background color on hover */
+  }
+  
+  
+  /* Styles for Accordion */
+  .AdminDashboard .MuiAccordion-root {
+    margin-bottom: 10px; /* Increased margin for spacing */
+  }
+  
+  .AdminDashboard .MuiAccordionSummary-root {
+    background-color: #FDF4E3;
+    display: flex;
+    justify-content: space-between; /* Aligns icons to the right */
+    width: 100%; /* Allow the summary to take the full width */
+  }
+  
+  .AdminDashboard .project-name {
+    font-family: 'Poppins', sans-serif; /* Set Poppins font for Project names */
+    font-weight: bold; /* Make Project names slightly bold */
+    font-size: 17px;
+    flex: 1; /* Allow project name to take available space */
+  }
+  
+  .AdminDashboard .MuiAccordionDetails-root {
+    padding: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .AdminDashboard ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .AdminDashboard li {
+    cursor: pointer;
+    margin-bottom: 15px; /* Increased margin for spacing */
+    border-bottom: 1px solid #ccc; /* Border after each project */
+    padding-bottom: 8px; /* Adjusted padding for spacing */
+  }
+  
+  .AdminDashboard .MuiIconButton-root {
+    margin-left: 10px; /* Adjusted margin between project name and icons */
+  }
+  
