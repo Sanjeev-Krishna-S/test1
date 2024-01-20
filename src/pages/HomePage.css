@@ -204,3 +204,42 @@
     font-weight: 700;
     text-align: center;
   }
+
+/* Add this to your CSS file */
+
+.footer {
+  background-color: #131313; /* Set to black */
+  color: #fff;
+  padding: 40px 0; /* Adjusted padding for increased height */
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo img {
+  width: 100px; /* Adjust the width of the logo */
+}
+
+/* Social icons style */
+.social-icons a {
+  margin-left: 10px;
+  color: #fff !important; /* Set the default color */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Set hover color for social icons */
+.social-icons a:hover,
+.social-icons a:focus {
+  color: #ffcc00 !important; /* Change the color on hover and focus */
+}
+
+
+
+

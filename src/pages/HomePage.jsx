@@ -1,5 +1,9 @@
 import React from 'react';
 import './HomePage.css';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 const HomePage = () => {
   return (
     <>
@@ -71,6 +75,28 @@ const HomePage = () => {
       </div>
     </section>
     </div>
+    <footer className="footer" id="contact-section">
+        <div className="footer-content">
+          <div className="footer-logo">
+            <p style={{ color: '#fff', fontSize: '2.1em', fontWeight: 'bold' }}>ICTAK</p>
+          </div>
+          <div className="social-icons">
+            <a href="https://www.instagram.com/ictkerala/?hl=en" target="_blank" rel="noopener noreferrer">
+              <InstagramIcon fontSize="large" className="social-icon" />
+            </a>
+            <a href="https://www.facebook.com/ictkerala/" target="_blank" rel="noopener noreferrer">
+              <FacebookIcon fontSize="large" className="social-icon" />
+            </a>
+            <a href="https://www.linkedin.com/company/ictkerala/" target="_blank" rel="noopener noreferrer">
+              <LinkedInIcon fontSize="large" className="social-icon" />
+            </a>
+            <a href="https://www.youtube.com/user/ictkerala" target="_blank" rel="noopener noreferrer">
+              <YouTubeIcon fontSize="large" className="social-icon" />
+            </a>
+          </div>
+        </div>
+      </footer>
+
     </>
   );
 }
