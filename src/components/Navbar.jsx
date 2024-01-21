@@ -12,7 +12,6 @@ const Navbar = () => {
         <div className='nav-elements'>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
             <li><a href="#contact-section">Contact</a></li>
             <li><Link to="/login">Login</Link></li>
           </ul>
