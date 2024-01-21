@@ -1,10 +1,10 @@
-/* AdminDashboard.css */
-
 .AdminDashboard {
   max-width: 800px;
   margin: 30px auto;
   padding: 20px;
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column; /* Align children in a column layout */
 }
 
 .AdminDashboard h2 {
@@ -58,4 +58,8 @@
 
 .AdminDashboard .MuiIconButton-root {
   margin-left: 10px;
+}
+
+.add-project-container {
+  margin-top: 15px; /* Add margin to separate "Add Project" from the list */
 }
