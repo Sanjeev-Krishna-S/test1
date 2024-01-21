@@ -6,7 +6,6 @@ import AdminDashboard from './pages/AdminDashboard';
 import AddMentor from './components/AddMentor';
 import ViewMentors from './components/ViewMentors';
 import Main from './components/Main';
-import About from './components/About';
 import MentorDashboard from './pages/MentorDashboard';
 import MentorSubmission from './pages/MentorSubmission';
 import MentorGrading from './pages/MentorGrading';
@@ -17,7 +16,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Main child={<HomePage />} />} />
-        <Route path='/about' element={<Main child={<About />} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/admin/*' element={<Main child={<AdminDashboard />} />} />
         <Route path='/mentor/*' element={<Main child={<MentorDashboard />} />} />
