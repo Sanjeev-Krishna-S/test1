@@ -1,0 +1,33 @@
+.updatementorform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+    margin-top: 3%;
+}
+.updatementorform .form-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.custom-textfield .MuiInputBase-root {
+  color: #4a148c; 
+}
+
+.custom-textfield .MuiFormLabel-root.Mui-focused {
+  color: #ff6f00; 
+}
+
+.custom-textfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #4a148c; 
+}
+
+.custom-textfield .MuiOutlinedInput-input {
+  padding: 12px; 
+}
+
+.custom-textfield .MuiFormHelperText-root {
+  color: #ff6f00; 
+}
+
+  

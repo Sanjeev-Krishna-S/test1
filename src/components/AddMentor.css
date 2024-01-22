@@ -1,32 +1,35 @@
-.addmentorform{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10%;
-    margin-top: 3%;
+.addmentorform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10%;
+  margin-top: 3%;
 }
+
 .addmentorform .form-field {
-    margin-bottom: 20px;
-    width: 100%;
+  margin-bottom: 20px;
+  width: 100%;
 }
-.custom-textfield .MuiInputBase-root {
-    color: #f50057; /* Change the color of the text */
-  }
-  
-  .custom-textfield .MuiFormLabel-root.Mui-focused {
-    color: #00d8f5; /* Change the color of the label when the TextField is focused */
-  }
-  
-  .custom-textfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: #f50057; /* Change the color of the border when the TextField is focused */
-  }
-  
-  .custom-textfield .MuiOutlinedInput-input {
-    padding: 12px; /* Increase the padding inside the TextField */
-  }
-  
-  .custom-textfield .MuiFormHelperText-root {
-    color: #f50057; /* Change the color of the helper text */
-  }
-  
+
+/* Update the class to .custom-textfield */
+.custom-textfield .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: #f50057;
+}
+
+.custom-textfield .MuiOutlinedInput-input {
+  padding: 12px;
+}
+
+.custom-textfield .MuiFormHelperText-root {
+  color: #f50057;
+}
+
+/* Add styles for focused state */
+.custom-textfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #00d8f5;
+}
+
+.custom-textfield .MuiFormLabel-root.Mui-focused {
+  color: #000000;
+}

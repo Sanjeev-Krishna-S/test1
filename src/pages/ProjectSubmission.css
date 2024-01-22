@@ -1,0 +1,60 @@
+/* ProjectSubmission.css */
+.ProjectSubmission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Make the container full width */
+}
+.heading-container {
+  width: 90%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+
+.ProjectSubmission h5 {
+  align-self: flex-start; /* Align the heading to the left */
+  margin-top: 20px; /* Add a margin above the heading */
+  margin-bottom: 20px; /* Add a margin below the heading */
+}
+
+.submission {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px; /* Add a margin below each submission */
+}
+
+.status-completed {
+  color: green;
+}
+
+.status-pending {
+  color: red;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin-top: 10px;
+}
+
+
+.edit-button,
+.delete-button {
+  margin: 10px; /* Add a margin on all sides of each button */
+}
+
+/* Add this to style the accordion */
+.MuiAccordion-root {
+  width: 90%; /* Reduce the width to 90% */
+  margin: 10px auto; /* Add top and bottom margins of 10px and automatic left and right margins */
+  background-color: #FDF4E3; /* Add the background color from the previous code */
+}
+
+.MuiAccordionDetails-root {
+  padding: 8px;
+  background-color: #f9f9f9; /* Add the background color from the previous code */
+}
+

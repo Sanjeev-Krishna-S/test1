@@ -1,22 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Grid } from '@mui/material';
-import axios from 'axios'; // Import axios for making HTTP requests
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';  // Corrected import
 import AdminNavbar from './AdminNavbar';
 import './ViewMentors.css';
 
-const ViewMentors = ({ handleUpdate, handleDelete }) => {
+const ViewMentors = () => {
   const [mentors, setMentors] = useState([]);
+  const navigate = useNavigate();  // Corrected hook
 
   useEffect(() => {
-    // Fetch data from the server using axios.get
-    axios.get('http://localhost:4000/mentor') 
+    axios.get('http://localhost:4000/mentor')
       .then(response => {
         setMentors(response.data);
       })
       .catch(error => {
         console.error('Error fetching mentors:', error);
       });
-  }, []); // The empty dependency array ensures that this effect runs only once on component mount
+  }, []);
+
+  const handleUpdate = (mentorId) => {
+    const mentorToUpdate = mentors.find(mentor => mentor.mentorId === mentorId);
+    navigate('/admin/updatementor', { state: { mentorToUpdate } });
+  };
+
+
+
+  const handleDeleteMentor = (mentorId) => {
+    axios.delete(`http://localhost:4000/mentor/remove/${mentorId}`)
+      .then(response => {
+        console.log('Mentor deleted successfully');
+        // You may want to refetch the mentor list or update state accordingly
+        setMentors(prevMentors => prevMentors.filter(mentor => mentor.mentorId !== mentorId));
+      })
+      .catch(error => {
+        console.error('Error deleting mentor:', error);
+      });
+  };
 
   return (
     <div>
@@ -25,16 +45,20 @@ const ViewMentors = ({ handleUpdate, handleDelete }) => {
         {mentors.map((mentor) => (
           <Grid item xs={12} sm={12} md={6} lg={4} key={mentor.id}>
             <div className='mentorlist'>
-              <h2>{mentor.name}</h2>
+              <h2>{mentor.mentorName}</h2>
               <p>{mentor.email}</p>
-              <p>{mentor.phone}</p>
-              <Button variant="contained" color="primary" onClick={() => handleUpdate(mentor.id)}>
+              <p>{mentor.phoneNumber}</p>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => handleUpdate(mentor.mentorId)}
+              >
                 Update
               </Button>
               <Button
                 variant="contained"
                 color="secondary"
-                onClick={() => handleDelete(mentor.id)}
+                onClick={() => handleDeleteMentor(mentor.mentorId)}
                 style={{ marginLeft: '10px' }}
               >
                 Delete
@@ -48,5 +72,6 @@ const ViewMentors = ({ handleUpdate, handleDelete }) => {
 };
 
 export default ViewMentors;
+
 
 
