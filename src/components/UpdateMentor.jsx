@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, IconButton, InputAdornment, Checkbox, Select, MenuItem } from '@mui/material';
-import { useLocation } from 'react-router-dom';
+import { useLocation , useNavigate } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AdminNavbar from './AdminNavbar';
@@ -9,6 +9,7 @@ import './UpdateMentor.css';
 
 const UpdateMentor = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [mentor, setMentor] = useState(location.state.mentorToUpdate);
   const [showPassword, setShowPassword] = useState(false);
   const [projects, setProjects] = useState([]);
@@ -49,8 +50,9 @@ const UpdateMentor = () => {
     axios.put(`http://localhost:4000/mentor/update/${mentor.mentorId}`, mentor)
       .then(response => {
         console.log('Mentor updated successfully');
-        alert('Mentor updated successfully');  // Show an alert
-        window.location = '/admin/viewmentor';  // Navigate to ViewMentors page
+        alert('Mentor updated successfully'); 
+        navigate('/admin/viewmentor');   
+         
       })
       .catch(error => {
         console.error('Error updating mentor:', error);

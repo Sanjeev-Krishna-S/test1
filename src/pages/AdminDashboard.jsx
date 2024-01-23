@@ -26,22 +26,34 @@ const AdminDashboard = () => {
   const [updatedTopic, setUpdatedTopic] = useState('');
 
   useEffect(() => {
-    // Fetch projects on component mount
     axios.get('http://localhost:4000/project')
       .then(response => {
-        setProjects(response.data);
+        // Sort projects by ID in ascending order
+        const sortedProjects = response.data.sort((a, b) => parseInt(a.projectId.slice(1)) - parseInt(b.projectId.slice(1)));
+        setProjects(sortedProjects);
       })
       .catch(error => {
         console.error('Error fetching projects:', error);
       });
   }, []);
+  
 
   const generateNewProjectId = () => {
-    // Find the maximum project ID
-    const maxId = projects.reduce((max, project) => Math.max(max, parseInt(project.projectId.slice(1), 10)), 0);
+    // Create a Set of existing project IDs for efficient lookup
+    const projectIds = new Set(projects.map(project => parseInt(project.projectId.slice(1), 10)));
+  
+    // Start from 1 and find the smallest integer not in the set
+    let newIdNum = 1;
+    while (projectIds.has(newIdNum)) {
+      newIdNum++;
+    }
+  
     // Generate a new project ID
-    return `P${String(maxId + 1).padStart(2, '0')}`;
+    let newId = `P${String(newIdNum).padStart(2, '0')}`;
+  
+    return newId;
   };
+  
 
   const handleAddProject = () => {
     const newProjectId = generateNewProjectId();
@@ -79,22 +91,21 @@ const AdminDashboard = () => {
       }
     });
   };
-
   const handleDeleteClick = async (projectId) => {
     try {
-      setProjects(prevProjects =>
-        prevProjects.filter(project => project.id !== projectId)
-      );
-      setExpandedProjects(prevExpanded =>
-        prevExpanded.filter(id => id !== projectId)
-      );
       await axios.delete(`http://localhost:4000/project/remove/${projectId}`);
+      setProjects((prevProjects) =>
+        prevProjects.filter((project) => project.id !== projectId)
+      );
+      setExpandedProjects((prevExpanded) =>
+        prevExpanded.filter((id) => id !== projectId)
+      );
       alert(`Project with ID ${projectId} deleted successfully!`);
     } catch (error) {
       console.error(`Error deleting project with ID ${projectId}:`, error);
     }
-  };
-
+  };  
+ 
   const handleEditClick = (project) => {
     setSelectedProject(project);
     setUpdatedTopic(project.topic);
@@ -106,14 +117,14 @@ const AdminDashboard = () => {
       await axios.put(`http://localhost:4000/project/update/${projectId}`, {
         topic: updatedTopic,
       });
-
+  
       // Update the local state immediately
       setProjects((prevProjects) =>
         prevProjects.map((project) =>
           project.id === projectId ? { ...project, topic: updatedTopic } : project
         )
       );
-
+  
       // Close the modal
       setUpdateModalOpen(false);
       alert(`Project with ID ${projectId} updated successfully!`);
@@ -121,7 +132,7 @@ const AdminDashboard = () => {
       console.error(`Error updating project with ID ${projectId}:`, error);
     }
   };
-
+  
   return (
     <div className="AdminDashboard">
       <h2 className="projects-heading">PROJECTS</h2>
@@ -131,6 +142,7 @@ const AdminDashboard = () => {
             key={project.id}
             expanded={expandedProjects.includes(project.projectId)}
             onChange={() => handleToggleProject(project.projectId)}
+            sx={{ width: '100%' }} // Set a fixed width for the accordion
           >
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
               <Typography className="project-name">{project.projectId}</Typography>
@@ -151,7 +163,7 @@ const AdminDashboard = () => {
           </Accordion>
         ))}
       </div>
-      <div className="add-project-container">
+      <div className="add-project-container" style={{ width: '100%' }}>
         <TextField
           label="Project Topic"
           variant="outlined"
@@ -160,7 +172,13 @@ const AdminDashboard = () => {
           value={newProjectTopic}
           onChange={(e) => setNewProjectTopic(e.target.value)}
         />
-        <Button onClick={handleAddProject} color="primary" variant="contained" size="small" style={{ marginTop: '10px' }}>
+        <Button
+          onClick={handleAddProject}
+          color="primary"
+          variant="contained"
+          size="small"
+          style={{ marginTop: '10px', width: '100%' }} // Set the width to match the accordion
+        >
           <AddIcon /> Add Project
         </Button>
       </div>

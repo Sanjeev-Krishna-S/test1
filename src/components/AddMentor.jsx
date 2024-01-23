@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem, Checkbox, ListItemText } from '@mui/material';
 import axios from 'axios';
 import AdminNavbar from './AdminNavbar';
@@ -7,6 +8,8 @@ import './AddMentor.css';
 const AddMentor = () => {
   const [mentor, setMentor] = useState({ mentorId: '', mentorName: '', email: '', phoneNumber: '', password: '', projects: [] });
   const [projects, setProjects] = useState([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     axios.get('http://localhost:4000/project/')
@@ -16,20 +19,35 @@ const AddMentor = () => {
       .catch(error => {
         console.error('Error fetching projects:', error);
       });
-
-    axios.get('http://localhost:4000/mentor/')
+  
+      axios.get('http://localhost:4000/mentor/')
       .then(response => {
-        let mentorCount = response.data.length + 1;
-        let mentorId = `M0${mentorCount}`;
-        if (mentorCount >= 10) {
-          mentorId = `M${mentorCount}`;
-        }
+        let mentors = response.data;
+        let mentorId = generateMentorId(mentors);
         setMentor(prevMentor => ({ ...prevMentor, mentorId: mentorId }));
       })
       .catch(error => {
         console.error('Error fetching mentors:', error);
       });
-  }, []);
+    }, []);
+    
+    function generateMentorId(mentors) {
+      // Create a Set of existing mentor IDs for efficient lookup
+      const mentorIds = new Set(mentors.map(mentor => parseInt(mentor.mentorId.slice(1), 10)));
+    
+      // Start from 1 and find the smallest integer not in the set
+      let newIdNum = 1;
+      while (mentorIds.has(newIdNum)) {
+        newIdNum++;
+      }
+    
+      // Generate a new mentor ID
+      let newId = `M${String(newIdNum).padStart(2, '0')}`;
+    
+      return newId;
+    }
+    
+  
 
   const handleTextChange = (event) => {
     const { name, value } = event.target;
@@ -48,12 +66,13 @@ const AddMentor = () => {
   };
 
   const handleSubmit = (event) => {
+    console.log('Mentor object:', mentor);
     event.preventDefault();
     axios.post('http://localhost:4000/mentor/add', mentor)
       .then(response => {
         console.log('Mentor added successfully');
         alert('Mentor added successfully'); 
-        window.location = '/admin/viewmentor';  
+        navigate('/admin/viewmentor');   
       })
       .catch(error => {
         console.error('Error adding mentor:', error);

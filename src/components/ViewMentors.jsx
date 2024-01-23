@@ -12,7 +12,8 @@ const ViewMentors = () => {
   useEffect(() => {
     axios.get('http://localhost:4000/mentor')
       .then(response => {
-        setMentors(response.data);
+        const sortedMentors = response.data.sort((a, b) => parseInt(a.mentorId.slice(1)) - parseInt(b.mentorId.slice(1)));
+        setMentors(sortedMentors);
       })
       .catch(error => {
         console.error('Error fetching mentors:', error);

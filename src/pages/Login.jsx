@@ -13,18 +13,18 @@ const Login = () => {
     e.preventDefault();
     axios.post('http://localhost:4000/auth/login', { email, password })
     .then(response => {
-    if (response.data.role === 'admin') {
-      navigate('/admin/*');
-    } else if (response.data.role === 'mentor') {
-      navigate('/mentor/*', { state: { mentorId: response.data.mentorId } });
-      console.log(response.data);
-    } else {
-      alert('Invalid credentials');
-    }
-  })
-  .catch(error => {
-    console.error('There was an error!', error);
-  });
+      if (response.data.role === 'admin') {
+        navigate('/admin/*');
+      } else if (response.data.role === 'mentor') {
+        navigate('/mentor/*', { state: { mentorId: response.data.mentorId } });
+        console.log(response.data);
+      } else {
+        alert('Invalid credentials');
+      }
+    })
+    .catch(error => {
+      console.error('There was an error!', error);
+    });
   };
 
   return (

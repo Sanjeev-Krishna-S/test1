@@ -1,0 +1,23 @@
+.EditSubmission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff5ca;
+  font-family: 'Poppins', sans-serif;
+}
+
+.EditSubmission h5 {
+  width: 100%;
+  text-align: left;
+}
+
+.EditSubmission .MuiTextField-root {
+  width: 100%;
+}
+
+.EditSubmission .MuiButton-root {
+  margin-top: 20px;
+}
