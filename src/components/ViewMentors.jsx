@@ -10,7 +10,7 @@ const ViewMentors = () => {
   const navigate = useNavigate();  // Corrected hook
 
   useEffect(() => {
-    axios.get('http://localhost:4000/mentor')
+    axios.get('/mentor')
       .then(response => {
         const sortedMentors = response.data.sort((a, b) => parseInt(a.mentorId.slice(1)) - parseInt(b.mentorId.slice(1)));
         setMentors(sortedMentors);
@@ -28,7 +28,7 @@ const ViewMentors = () => {
 
 
   const handleDeleteMentor = (mentorId) => {
-    axios.delete(`http://localhost:4000/mentor/remove/${mentorId}`)
+    axios.delete(`/mentor/remove/${mentorId}`)
       .then(response => {
         console.log('Mentor deleted successfully');
         // You may want to refetch the mentor list or update state accordingly

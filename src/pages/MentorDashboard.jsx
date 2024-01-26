@@ -13,11 +13,11 @@ const MentorDashboard = () => {
 
   // Fetch the mentor's projects when the component mounts
   useEffect(() => {
-    axios.get(`http://localhost:4000/mentor/${mentorId}`)
+    axios.get(`/mentor/${mentorId}`)
       .then(response => {
         // Fetch the details of each project
         const projectPromises = response.data.projects.map(projectId =>
-          axios.get(`http://localhost:4000/project/${projectId}`)
+          axios.get(`/project/${projectId}`)
         );
         return Promise.all(projectPromises);
       })

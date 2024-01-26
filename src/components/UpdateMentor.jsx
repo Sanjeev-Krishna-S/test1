@@ -18,7 +18,7 @@ const UpdateMentor = () => {
     if (!mentor) {
       // Redirect to mentors list or show error
     }
-    axios.get('http://localhost:4000/project')
+    axios.get('/project')
       .then(response => {
         setProjects(response.data);
       })
@@ -47,7 +47,7 @@ const UpdateMentor = () => {
 
   const handleUpdate = (event) => {
     event.preventDefault();
-    axios.put(`http://localhost:4000/mentor/update/${mentor.mentorId}`, mentor)
+    axios.put(`/mentor/update/${mentor.mentorId}`, mentor)
       .then(response => {
         console.log('Mentor updated successfully');
         alert('Mentor updated successfully'); 

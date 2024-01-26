@@ -12,7 +12,7 @@ const AddMentor = () => {
 
 
   useEffect(() => {
-    axios.get('http://localhost:4000/project/')
+    axios.get('/project/')
       .then(response => {
         setProjects(response.data);
       })
@@ -20,7 +20,7 @@ const AddMentor = () => {
         console.error('Error fetching projects:', error);
       });
   
-      axios.get('http://localhost:4000/mentor/')
+      axios.get('/mentor/')
       .then(response => {
         let mentors = response.data;
         let mentorId = generateMentorId(mentors);
@@ -68,7 +68,7 @@ const AddMentor = () => {
   const handleSubmit = (event) => {
     console.log('Mentor object:', mentor);
     event.preventDefault();
-    axios.post('http://localhost:4000/mentor/add', mentor)
+    axios.post('/mentor/add', mentor)
       .then(response => {
         console.log('Mentor added successfully');
         alert('Mentor added successfully'); 

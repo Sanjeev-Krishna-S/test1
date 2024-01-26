@@ -14,7 +14,7 @@ const ProjectSubmission = () => {
 
   // Fetch all submissions when the component mounts
   useEffect(() => {
-    axios.get('http://localhost:4000/submit/')
+    axios.get('/submit/')
       .then(response => {
         // Filter the submissions for the current project
         const projectSubmissions = response.data.filter(submission => submission.projectId === projectId);
@@ -39,7 +39,7 @@ const ProjectSubmission = () => {
   const handleDelete = async (submissionId) => {
     try {
       // Delete the submission on the server
-      await axios.delete(`http://localhost:4000/submit/remove/${submissionId}`);
+      await axios.delete(`/submit/remove/${submissionId}`);
 
       // Update the local state to remove the deleted submission
       setSubmissions(prevSubmissions => prevSubmissions.filter(submission => submission.submissionId !== submissionId));

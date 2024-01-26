@@ -26,7 +26,7 @@ const AdminDashboard = () => {
   const [updatedTopic, setUpdatedTopic] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:4000/project')
+    axios.get('/project')
       .then(response => {
         // Sort projects by ID in ascending order
         const sortedProjects = response.data.sort((a, b) => parseInt(a.projectId.slice(1)) - parseInt(b.projectId.slice(1)));
@@ -66,7 +66,7 @@ const AdminDashboard = () => {
     setExpandedProjects(prevExpanded => [...prevExpanded, newProjectId]);
 
     // Send the request to the server
-    axios.post('http://localhost:4000/project/add', {
+    axios.post('/project/add', {
       projectId: newProjectId,
       topic: newProjectTopic
     })
@@ -93,7 +93,7 @@ const AdminDashboard = () => {
   };
   const handleDeleteClick = async (projectId) => {
     try {
-      await axios.delete(`http://localhost:4000/project/remove/${projectId}`);
+      await axios.delete(`/project/remove/${projectId}`);
       setProjects((prevProjects) =>
         prevProjects.filter((project) => project.id !== projectId)
       );
@@ -114,7 +114,7 @@ const AdminDashboard = () => {
 
   const handleUpdateProject = async (projectId, updatedTopic) => {
     try {
-      await axios.put(`http://localhost:4000/project/update/${projectId}`, {
+      await axios.put(`/project/update/${projectId}`, {
         topic: updatedTopic,
       });
   

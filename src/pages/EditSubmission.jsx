@@ -18,7 +18,7 @@ const EditSubmission = () => {
 
   useEffect(() => {
     // Fetch submission details based on submissionId
-    axios.get(`http://localhost:4000/submit/${submissionId}`)
+    axios.get(`/submit/${submissionId}`)
       .then(response => {
         const submission = response.data;
         setComments(submission.comments);
@@ -35,7 +35,7 @@ const EditSubmission = () => {
 
   const handleUpdate = () => {
     // Make API call to update all details
-    axios.put(`http://localhost:4000/submit/update/${submissionId}`, { 
+    axios.put(`/submit/update/${submissionId}`, { 
       comments: updatedComments || comments,
       marks: updatedMarks || marks,
     })

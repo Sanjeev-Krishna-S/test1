@@ -11,8 +11,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:4000/auth/login', { email, password })
+    axios.post('/auth/login', { email, password })
     .then(response => {
+      localStorage.setItem('token', response.data.token);
       if (response.data.role === 'admin') {
         navigate('/admin/*');
       } else if (response.data.role === 'mentor') {
